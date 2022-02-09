@@ -1,0 +1,46 @@
+version : '3.3'
+
+services:
+    discovery-server:
+        container_name: discovery-server
+        build:
+            context: ./discovery-server
+            dockerfile: Dockerfile
+        ports:
+        -   "8761:8761"
+    movie-catalog-service:
+        container_name: movie-catalog-service
+        build:
+            context: ./movie-catalog-service
+            dockerfile: Dockerfile
+        ports:
+        -   "8081:8081"
+        links:
+            - discovery-server
+        environment:
+            SPRING_APPLICATION_JSON: '{"eureka":{"client":{"serviceUrl":{"defaultZone":"http://discovery-server:8761/eureka"}}}}'
+    
+    movie-info-service:
+        container_name: movie-info-service
+        build:
+            context: ./movie-info-service
+            dockerfile: Dockerfile
+        links:
+            - discovery-server
+        environment:
+            SPRING_APPLICATION_JSON: '{"eureka":{"client":{"serviceUrl":{"defaultZone":"http://discovery-server:8761/eureka"}}}}'
+        ports:
+        -   "8082:8082"
+    
+    movie-ratings-service:
+        container_name: movie-ratings-service
+        build:
+            context: ./movie-ratings-service
+            dockerfile: Dockerfile
+        links:
+            - discovery-server
+        environment:
+            SPRING_APPLICATION_JSON: '{"eureka":{"client":{"serviceUrl":{"defaultZone":"http://discovery-server:8761/eureka"}}}}'
+        ports:
+        -   "8083:8083"
+        
