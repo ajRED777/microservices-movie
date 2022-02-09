@@ -17,6 +17,7 @@ import com.aj.moviecatalogservice.models.CatalogItem;
 import com.aj.moviecatalogservice.models.Movie;
 import com.aj.moviecatalogservice.models.Rating;
 import com.aj.moviecatalogservice.models.UserRatings;
+import com.netflix.discovery.DiscoveryClient;
 
 @RestController
 @RequestMapping("/catalog")
@@ -27,18 +28,19 @@ public class MovieCatalogResource {
 	private RestTemplate restTemplate;
 	
 	@Autowired
+	private DiscoveryClient discoveryClient;
+	
+	@Autowired
 	private WebClient.Builder webClientBuilder;
 	
 	@GetMapping("/{userId}")
 	public List<CatalogItem> getCatalog(@PathVariable("userId") String userId ){
 		
-		
-		//get all rated movie Id s
-		UserRatings ratings = restTemplate.getForObject("http://localhost:8083/ratings/users/'"+userId, UserRatings.class);
+		UserRatings ratings = restTemplate.getForObject("http://movie-rating-service/ratings/users/'"+userId, UserRatings.class);
 		
 		
 		return ratings.getRatings().stream().map(rating-> {
-			Movie movie = restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(), Movie.class);
+			Movie movie = restTemplate.getForObject("http://movie-info-service/movies/"+rating.getMovieId(), Movie.class);
 			
 //			Movie movie = webClientBuilder.build()
 //				.get() //get Method
