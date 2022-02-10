@@ -8,7 +8,7 @@
 	-movie-ratings-service
 	-movie-info-service
 
-## 2.Configuring IPC
+## 2.Configuring Inter Process Communication between microservices
 	-communicating between microservices in local using RestTemplate
 
 ## 3.Configuring eureka server
