@@ -2,7 +2,7 @@
 <p align="center">Dockerizing microservices and registering on the Eureka server </p>
 
 
-## 1.Creating 4 microservices
+## 1.Creating 4 spring boot applications
 	-discovery-server -> the eureka server used for registering services
 	-movie-catalog-service -> service that gives list of movies the user has rated
 	-movie-ratings-service -> service that gives the rating the user has saved for a movie
