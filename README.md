@@ -41,7 +41,7 @@
 #### References
 * [Microservices-java brains](https://youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas)
 * [Docker & Docker Compose for Java Spring Apps](https://youtu.be/8s7m9DHkzQY)
-* [Solution to registering cleints on eureka failing](https://stackoverflow.com/questions/44667063/docker-and-eureka-with-spring-boot-failing-to-register-clients)
+* [Solution to registering clients on eureka failing](https://stackoverflow.com/questions/44667063/docker-and-eureka-with-spring-boot-failing-to-register-clients)
 
 				
 
