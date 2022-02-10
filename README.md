@@ -1,5 +1,5 @@
 <h1 align="center">Movie microservices</h1>
-<p align="center">Dockerizing microservices and Eureka server registering</p>
+<p align="center">Dockerizing microservices and registering on the Eureka server </p>
 
 
 ## 1.Creating 4 microservices
