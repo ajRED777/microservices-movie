@@ -17,17 +17,30 @@
 
 ## 4.Running microservices in docker containers
 	-configuring Dockerfiles for microservices
+![image](https://user-images.githubusercontent.com/44117428/153349226-ba467d51-758a-494a-8db3-d9b6fd2d5f50.png)
+
 	-running microservices individually in docker containers
-		commands
-			docker build .
-			docker run -p 8762:8761 <image_id>
+	
+![image](https://user-images.githubusercontent.com/44117428/153349072-65bd0ab6-42ce-427e-91d0-f124d89de932.png)
+		
+	commands
+			> docker build .
+			> docker run -p 8762:8761 <image_id>
+			
 	
 ## 5.Registering microservices in different containers to the eureka server
 	-configuring yml file
 	-running in docker
 		commands
-			docker-compose build --no-cache
-			docker-compose up
+			> docker-compose build --no-cache
+			> docker-compose up
+			
+
+
+#### references
+	https://youtube.com/playlist?list=PLqq-6Pq4lTTZSKAFG6aCDVDP86Qx4lNas
+	https://stackoverflow.com/questions/44667063/docker-and-eureka-with-spring-boot-failing-to-register-clients
+	https://youtu.be/8s7m9DHkzQY
 				
 
 
